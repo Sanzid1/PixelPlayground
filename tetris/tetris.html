@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tetris | PixelPlayground</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="tetris.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Tetris</h1>
+            <div class="game-controls">
+                <div id="score">Score: 0</div>
+                <div id="level">Level: 1</div>
+                <button onclick="resetGame()">New Game</button>
+            </div>
+        </header>
+
+        <div class="game-area">
+            <canvas id="gameCanvas"></canvas>
+            <div class="info-panel">
+                <div class="next-piece">
+                    <h3>Next Piece:</h3>
+                    <canvas id="nextPiece"></canvas>
+                </div>
+                <div class="controls">
+                    <h3>Controls:</h3>
+                    <p>← → : Move</p>
+                    <p>↑ : Rotate</p>
+                    <p>↓ : Soft Drop</p>
+                    <p>Space : Hard Drop</p>
+                    <p>C : Hold Piece</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="gameOver" class="hidden">
+            <h2>Game Over!</h2>
+            <p>Final Score: <span id="finalScore">0</span></p>
+            <button onclick="resetGame()">Play Again</button>
+        </div>
+        
+        <a href="../index.html" class="home-link">Back to Menu</a>
+    </div>
+
+    <script src="tetris.js"></script>
+</body>
+</html>

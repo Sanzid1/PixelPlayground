@@ -1,0 +1,90 @@
+.container {
+    max-width: 800px;
+}
+
+#gallows {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: 20px auto;
+}
+
+.gallows-part {
+    background: var(--text-color);
+    position: absolute;
+    display: none;
+}
+
+.figure-part {
+    background: var(--accent-color);
+    position: absolute;
+    display: none;
+}
+
+/* Gallows Structure */
+#base { width: 200px; height: 10px; bottom: 0; left: 50px; }
+#post { width: 10px; height: 250px; left: 70px; }
+#beam { width: 150px; height: 10px; left: 70px; top: 40px; }
+#rope { width: 4px; height: 40px; left: 205px; top: 40px; }
+
+/* Hangman Figure */
+#head {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    left: 185px;
+    top: 80px;
+}
+
+#body { width: 4px; height: 80px; left: 205px; top: 120px; }
+#left-arm { width: 40px; height: 4px; left: 165px; top: 140px; }
+#right-arm { width: 40px; height: 4px; left: 205px; top: 140px; }
+#left-leg { width: 40px; height: 4px; left: 165px; top: 200px; transform: rotate(45deg); }
+#right-leg { width: 40px; height: 4px; left: 205px; top: 200px; transform: rotate(-45deg); }
+
+#wordDisplay {
+    text-align: center;
+    font-size: 2rem;
+    letter-spacing: 0.5em;
+    margin: 2rem 0;
+    color: var(--text-color);
+}
+
+#keyboard {
+    display: grid;
+    grid-template-columns: repeat(13, 1fr);
+    gap: 5px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#keyboard button {
+    padding: 10px;
+    font-size: 1rem;
+    background: var(--secondary-color);
+    border: none;
+    border-radius: 5px;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+#keyboard button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+#keyboard button.correct {
+    background: #2ecc71;
+}
+
+#keyboard button.incorrect {
+    background: #e74c3c;
+}
+
+#status {
+    text-align: center;
+    margin: 1rem 0;
+    color: var(--accent-color);
+    font-size: 1.2rem;
+}

@@ -1,0 +1,39 @@
+.container {
+    max-width: 600px;
+}
+
+#gameCanvas {
+    border: 2px solid var(--accent-color);
+    border-radius: 5px;
+    margin: 20px auto;
+    display: block;
+}
+
+#gameOver {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--primary-color);
+    padding: 2rem;
+    border: 2px solid var(--accent-color);
+    border-radius: 10px;
+    text-align: center;
+    z-index: 100;
+}
+
+#gameOver.hidden {
+    display: none;
+}
+
+.game-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+#score {
+    font-size: 1.2rem;
+    color: var(--accent-color);
+}

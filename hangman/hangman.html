@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hangman | PixelPlayground</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="hangman.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Hangman</h1>
+            <div class="game-controls">
+                <select id="category">
+                    <option value="countries">Countries</option>
+                    <option value="colors">Colors</option>
+                    <option value="fruits">Fruits</option>
+                </select>
+                <button onclick="newGame()">New Game</button>
+            </div>
+        </header>
+
+        <div id="gallows">
+            <div class="gallows-part" id="base"></div>
+            <div class="gallows-part" id="post"></div>
+            <div class="gallows-part" id="beam"></div>
+            <div class="gallows-part" id="rope"></div>
+            <div class="figure-part" id="head"></div>
+            <div class="figure-part" id="body"></div>
+            <div class="figure-part" id="left-arm"></div>
+            <div class="figure-part" id="right-arm"></div>
+            <div class="figure-part" id="left-leg"></div>
+            <div class="figure-part" id="right-leg"></div>
+        </div>
+
+        <div id="wordDisplay"></div>
+        <div id="keyboard"></div>
+        <div id="status"></div>
+        
+        <a href="../index.html" class="home-link">Back to Menu</a>
+    </div>
+
+    <script src="hangman.js"></script>
+</body>
+</html>

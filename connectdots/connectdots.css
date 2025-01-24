@@ -1,0 +1,52 @@
+.container {
+    max-width: 1000px;
+}
+
+#gameContainer {
+    position: relative;
+    margin: 20px auto;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background: #ffffff;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.line {
+    background: var(--accent-color);
+    position: absolute;
+    transition: background 0.3s;
+}
+
+.horizontal-line {
+    width: 30px;
+    height: 2px;
+    cursor: pointer;
+}
+
+.vertical-line {
+    width: 2px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.box {
+    position: absolute;
+    transition: background 0.3s;
+}
+
+#scoreBoard {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 1rem 0;
+    font-size: 1.1rem;
+}
+
+#currentPlayer {
+    color: var(--accent-color);
+    font-weight: bold;
+}

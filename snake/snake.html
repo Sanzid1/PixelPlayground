@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake | PixelPlayground</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="snake.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Snake</h1>
+            <div class="game-controls">
+                <div id="score">Score: 0</div>
+                <button onclick="resetGame()">New Game</button>
+            </div>
+        </header>
+
+        <canvas id="gameCanvas"></canvas>
+        <div id="gameOver" class="hidden">
+            <h2>Game Over!</h2>
+            <p>Final Score: <span id="finalScore">0</span></p>
+            <button onclick="resetGame()">Play Again</button>
+        </div>
+        
+        <a href="../index.html" class="home-link">Back to Menu</a>
+    </div>
+
+    <script src="snake.js"></script>
+</body>
+</html>
