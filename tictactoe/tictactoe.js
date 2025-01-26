@@ -47,7 +47,8 @@ function makeMove(index) {
     gameBoard[index] = currentPlayer;
     document.querySelector(`[data-index="${index}"]`).textContent = currentPlayer;
     
-    if (checkWin()) {
+    const winner = checkWin();
+    if (winner) {
         document.getElementById('status').textContent = 
             `${vsAI && currentPlayer === 'X' ? 'Player' : currentPlayer} Wins!`;
         gameActive = false;
@@ -85,14 +86,18 @@ function getRandomMove() {
 }
 
 function getMediumMove() {
-    // Try to win or block immediately
+    // Try to win or block immediately with proper simulation
     for (let i = 0; i < gameBoard.length; i++) {
         if (gameBoard[i] === '') {
+            // Check for winning move
             gameBoard[i] = 'O';
             if (checkWin()) {
                 gameBoard[i] = '';
                 return i;
             }
+            gameBoard[i] = '';
+            
+            // Check for blocking move
             gameBoard[i] = 'X';
             if (checkWin()) {
                 gameBoard[i] = '';
@@ -105,7 +110,6 @@ function getMediumMove() {
 }
 
 function minimaxAI() {
-    // Minimax algorithm implementation
     let bestScore = -Infinity;
     let bestMove;
     
@@ -124,14 +128,10 @@ function minimaxAI() {
 }
 
 function minimax(board, depth, isMaximizing) {
-    const scores = {
-        'O': 1,
-        'X': -1,
-        'draw': 0
-    };
-
-    const result = checkWin(true);
-    if (result !== null) return scores[result];
+    const result = checkWin();
+    if (result === 'O') return 10 - depth;
+    if (result === 'X') return depth - 10;
+    if (board.every(cell => cell !== '')) return 0;
 
     if (isMaximizing) {
         let bestScore = -Infinity;
@@ -159,7 +159,7 @@ function minimax(board, depth, isMaximizing) {
 }
 
 // Game Logic
-function checkWin(checkOnly = false) {
+function checkWin() {
     const winPatterns = [
         [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
         [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columns
@@ -169,14 +169,8 @@ function checkWin(checkOnly = false) {
     for (const pattern of winPatterns) {
         const [a, b, c] = pattern;
         if (gameBoard[a] && gameBoard[a] === gameBoard[b] && gameBoard[a] === gameBoard[c]) {
-            if (!checkOnly) gameActive = false;
             return gameBoard[a];
         }
-    }
-    
-    if (gameBoard.every(cell => cell !== '') && !checkOnly) {
-        gameActive = false;
-        return 'draw';
     }
     return null;
 }
