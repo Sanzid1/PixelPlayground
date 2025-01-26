@@ -1,6 +1,6 @@
 // Add these variables with the other game state variables
-let lastUpdateTime = 1000;
-let baseInterval = 15000; // Base time between moves (milliseconds)
+let lastUpdateTime = 0;
+let baseInterval = 150; // Base time between moves (milliseconds)
 let level = 1;
 
 // Modify the update function like this
