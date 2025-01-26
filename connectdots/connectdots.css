@@ -1,41 +1,66 @@
-.container {
-    max-width: 1000px;
+:root {
+    --primary-color: #2a2a2a;
+    --secondary-color: #3a3a3a;
+    --accent-color: #6c5ce7;
+    --text-color: #ffffff;
+    --player1-color: #2ecc71;
+    --player2-color: #e74c3c;
 }
 
 #gameContainer {
     position: relative;
     margin: 20px auto;
+    background: var(--secondary-color);
+    border-radius: 10px;
+    padding: 20px;
 }
 
 .dot {
-    width: 8px;
-    height: 8px;
-    background: #ffffff;
+    width: 12px;
+    height: 12px;
+    background: var(--text-color);
     border-radius: 50%;
     position: absolute;
+    transform: translate(-50%, -50%);
+    z-index: 3;
 }
 
 .line {
-    background: var(--accent-color);
+    background: var(--text-color);
     position: absolute;
-    transition: background 0.3s;
+    transition: background-color 0.3s;
+    z-index: 2;
 }
 
 .horizontal-line {
-    width: 30px;
-    height: 2px;
+    height: 4px;
     cursor: pointer;
+    transform: translateY(-50%);
 }
 
 .vertical-line {
-    width: 2px;
-    height: 30px;
+    width: 4px;
     cursor: pointer;
+    transform: translateX(-50%);
 }
 
 .box {
     position: absolute;
-    transition: background 0.3s;
+    z-index: 1;
+    background: var(--player1-color);
+    transition: background-color 0.3s;
+}
+
+.box.ai {
+    background: var(--player2-color);
+}
+
+.game-controls {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 20px 0;
 }
 
 #scoreBoard {
@@ -43,10 +68,12 @@
     justify-content: center;
     gap: 2rem;
     margin: 1rem 0;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
 }
 
 #currentPlayer {
+    text-align: center;
     color: var(--accent-color);
     font-weight: bold;
+    margin: 1rem 0;
 }
