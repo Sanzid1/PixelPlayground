@@ -72,7 +72,7 @@ function spawnPiece() {
 }
 
 function drawNextPiece() {
-    nextCtx.fillStyle = var(--primary-color);
+    nextCtx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--primary-color');
     nextCtx.fillRect(0, 0, nextCanvas.width, nextCanvas.height);
     
     nextCtx.fillStyle = nextPiece.color;
@@ -232,7 +232,7 @@ function checkCollision(x, y, shape) {
 // Drawing
 function draw() {
     // Clear canvas
-    ctx.fillStyle = var(--primary-color);
+    ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--primary-color');
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     
     // Draw board

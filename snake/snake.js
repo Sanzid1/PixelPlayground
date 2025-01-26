@@ -97,11 +97,13 @@ function update() {
 
 function draw() {
     // Clear canvas
-    ctx.fillStyle = '#000'; // Replace with actual primary color
+    ctx.fillStyle = getComputedStyle(document.documentElement)
+        .getPropertyValue('--primary-color');
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     
     // Draw snake
-    ctx.fillStyle = '#0f0'; // Replace with actual accent color
+    ctx.fillStyle = getComputedStyle(document.documentElement)
+        .getPropertyValue('--accent-color');
     snake.forEach((segment) => {
         ctx.fillRect(
             segment.x * GRID_SIZE,
@@ -128,5 +130,20 @@ function endGame() {
     document.getElementById('finalScore').textContent = score;
 }
 
-// Initial game start
-resetGame();
+// Initialize game only after DOM loads
+document.addEventListener('DOMContentLoaded', () => {
+    const gameOverElement = document.getElementById('gameOver');
+    const newGameButton = document.getElementById('newGameButton');
+    
+    if (gameOverElement && newGameButton) {
+        // Show canvas but don't start game until New Game is clicked
+        draw();
+        gameOverElement.classList.add('hidden');
+        newGameButton.addEventListener('click', () => {
+            resetGame();
+            gameActive = true; // Ensure game is active when starting
+        });
+    } else {
+        console.error('Required game elements not found in the DOM');
+    }
+});
